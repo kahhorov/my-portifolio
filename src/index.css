@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-liner-1: #091c2f;
+  --color-liner-2: #070c34;
+  --color-white: #fff;
+  --color-text-color: #333;
+}
+
+@layer base {
+  #root {
+    @apply w-full h-screen flex flex-col;
+  }
+  body {
+    font-family: "Poppins", sans-serif;
+    /* background: linear-gradient(
+      337deg,
+      var(--color-liner-1) 30%,
+      var(--color-liner-2) 100%
+    ); */
+    color: var(--color-text-color);
+  }
+  button {
+    @apply cursor-pointer;
+  }
+}
+@layer utilities {
+  .container {
+    @apply w-full max-w-[1332px] px-4 mx-auto;
+  }
+}
