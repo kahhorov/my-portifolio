@@ -82,7 +82,7 @@ function Navbar() {
           </li>
         </ul>
       ) : (
-        <Box className="mt-10 fixed bottom-0 left-0 w-full text-xl">
+        <Box className=" fixed bottom-0 left-0 w-full text-xl">
           <BottomNavigation
             showLabels
             value={value}

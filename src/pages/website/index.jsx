@@ -46,7 +46,7 @@ function Website() {
         <span className="w-20 h-1 border-blue-600 border-t-4 absolute left-40 translate-y-4 rounded-2xl"></span>
       </h1>
       {/* websites */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5 mb-10">
+      <div className="flex flex-col md:flex-wrap md:flex-row gap-5 mt-5 mb-10 items-center">
         <Web webs={webs} />
       </div>
       {/* footer */}

@@ -5,8 +5,8 @@ import { Contact } from "../pages";
 
 function MainLayout() {
   return (
-    <>
-      <div className="flex justify-between items-center container py-4 text-xl">
+    <div className="pb-10">
+      <div className="flex justify-between items-center container py-4 text-xl mb-20">
         <h2>My-Portifolio</h2>
         <button className="text-2xl">
           <CiDark />
@@ -24,7 +24,7 @@ function MainLayout() {
           <Navbar />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

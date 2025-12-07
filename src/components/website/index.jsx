@@ -7,7 +7,7 @@ function Website({ webs }) {
         return (
           <div
             key={id}
-            className="border-gray-400/20 border bg-gray-200/30 rounded-2xl shadow-gray-300 shadow-lg last:col-span-2"
+            className="border-gray-400/20 border bg-gray-200/30 rounded-2xl shadow-gray-300 shadow-lg w-[300px] md:last:w-full"
           >
             <div className="overflow-hidden rounded-t-md w-full h-32 md:h-[200px]">
               <Link to={websLink}>
