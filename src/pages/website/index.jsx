@@ -1,5 +1,7 @@
 import { Web } from "../../components";
 import { v4 as uuid4 } from "uuid";
+import { Context } from "../../Context/ThemeContext";
+import { useContext } from "react";
 const webs = [
   {
     webImg: "/website-todo.png",
@@ -39,14 +41,27 @@ const webs = [
 ];
 
 function Website() {
+  const { darkMode } = useContext(Context);
   return (
-    <div className="shadow-gray-400 shadow-2xl rounded-2xl py-10 px-10 relative">
+    <div
+      className={`${
+        darkMode
+          ? "shadow-gray-700/90 shadow-2xl"
+          : "shadow-gray-400 shadow-2xl"
+      } rounded-2xl relative p-5`}
+    >
       <h1 className="text-3xl relative">
         Websites
-        <span className="w-20 h-1 border-blue-600 border-t-4 absolute left-40 translate-y-4 rounded-2xl"></span>
+        <span
+          className={`${
+            darkMode
+              ? "border-gray-200 border-t-4"
+              : "border-blue-600 border-t-4"
+          } w-20 h-1 absolute left-40 translate-y-4 rounded-2xl`}
+        ></span>
       </h1>
       {/* websites */}
-      <div className="flex flex-col md:flex-wrap md:flex-row gap-5 mt-5 mb-10 items-center">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 mt-5 mb-10 items-center p-3">
         <Web webs={webs} />
       </div>
       {/* footer */}

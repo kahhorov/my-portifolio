@@ -7,14 +7,12 @@ import { FaBlogger } from "react-icons/fa";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import RestoreIcon from "@mui/icons-material/Restore";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Context } from "../../Context/ThemeContext";
 
 function Navbar() {
   const [value, setValue] = useState(0);
-
+  const { darkMode } = useContext(Context);
   function useScreenSize() {
     const [width, setWidth] = useState(window.innerWidth);
 
@@ -32,16 +30,30 @@ function Navbar() {
   return (
     <>
       {responsive > 1024 ? (
-        <ul className="md:flex md:flex-col gap-5 bg-white shadow-gray-400 shadow-lg rounded-2xl py-5 px-4 justify-center items-center text-center sticky top-5 max-md:flex max-md:fixed max-md:bottom-0 max-md:h-24">
+        <ul
+          className={`${
+            darkMode
+              ? "bg-gray-800/60 shadow-gray-700/60 shadow-2xl"
+              : "bg-white shadow-gray-400 shadow-lg"
+          } md:flex md:flex-col gap-5 rounded-2xl py-5 px-4 justify-center items-center text-center sticky top-5 max-md:flex max-md:fixed max-md:bottom-0 max-md:h-24`}
+        >
           {/* ABOUT */}
           <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
                 `rounded-xl p-5 flex flex-col justify-center items-center text-sm transition-all duration-200 ease-linear w-24 ${
-                  isActive
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+                  darkMode
+                    ? `${
+                        isActive
+                          ? "bg-gray-700 text-white scale-110 shadow-gray-700 shadow-2xl"
+                          : "bg-gray-400/80 hover:bg-gray-700 hover:text-white"
+                      }`
+                    : `${
+                        isActive
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+                      }`
                 }`
               }
             >
@@ -54,10 +66,18 @@ function Navbar() {
             <NavLink
               to="/websites"
               className={({ isActive }) =>
-                `rounded-xl p-5 flex flex-col justify-center items-center text-sm transition-all duration-200 ease-linear  w-24 ${
-                  isActive
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+                `rounded-xl p-5 flex flex-col justify-center items-center text-sm transition-all duration-200 ease-linear w-24 ${
+                  darkMode
+                    ? `${
+                        isActive
+                          ? "bg-gray-700 text-white scale-110 shadow-gray-700 shadow-2xl"
+                          : "bg-gray-400/80 hover:bg-gray-700 hover:text-white"
+                      }`
+                    : `${
+                        isActive
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+                      }`
                 }`
               }
             >
@@ -71,9 +91,17 @@ function Navbar() {
               to="/blog"
               className={({ isActive }) =>
                 `rounded-xl p-5 flex flex-col justify-center items-center text-sm transition-all duration-200 ease-linear w-24 ${
-                  isActive
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+                  darkMode
+                    ? `${
+                        isActive
+                          ? "bg-gray-700 text-white scale-110 shadow-gray-700 shadow-2xl"
+                          : "bg-gray-400/80 hover:bg-gray-700 hover:text-white"
+                      }`
+                    : `${
+                        isActive
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-100 hover:bg-blue-600 hover:text-white"
+                      }`
                 }`
               }
             >

@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
-import "./style.css";
+import { Context } from "../../Context/ThemeContext";
+import { useContext } from "react";
 function Website({ webs }) {
+  const { darkMode } = useContext(Context);
   return (
     <>
       {webs.map(({ title, webImg, websLink, id }) => {
         return (
           <div
             key={id}
-            className="border-gray-400/20 border bg-gray-200/30 rounded-2xl shadow-gray-300 shadow-lg w-[300px] md:last:w-full"
+            className={`${
+              darkMode
+                ? "border-gray-800/20 border bg-gray-800/60 shadow-gray-700/80 shadow-lg"
+                : "border-gray-400/20 border bg-gray-200/30 shadow-gray-300 shadow-lg"
+            } rounded-2xl md:last:w-full`}
           >
             <div className="overflow-hidden rounded-t-md w-full h-32 md:h-[200px]">
               <Link to={websLink}>
